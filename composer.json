@@ -1,0 +1,31 @@
+{
+    "name": "internetdata/geocoder-php-provider",
+    "type": "library",
+    "description": "Official InternetData provider for Geocoder PHP. Geolocate an IPv4 or IPv6 address: country with no key, city, region, postal code and coordinates with one.",
+    "keywords": ["geocoder", "geocoder-php", "geocoding", "provider", "internetdata", "ip-geolocation", "geoip", "ip-lookup"],
+    "homepage": "https://internetdata.io",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "geocoder-php/common-http": "^4.0",
+        "symfony/http-client": "^8.1",
+        "willdurand/geocoder": "^4.0 || ^5.0"
+    },
+    "provide": {
+        "geocoder-php/provider-implementation": "1.0"
+    },
+    "require-dev": {
+        "geocoder-php/provider-integration-tests": "^1.6.3",
+        "php-http/message": "^1.0",
+        "phpunit/phpunit": "^9.6.11"
+    },
+    "autoload": { "psr-4": { "InternetData\\Geocoder\\": "src/" } },
+    "autoload-dev": { "psr-4": { "InternetData\\Geocoder\\Tests\\": "tests/" } },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": { "php-http/discovery": true }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": { "test": "vendor/bin/phpunit" }
+}
