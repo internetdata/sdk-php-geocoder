@@ -40,6 +40,34 @@ echo $address->getCoordinates()->getLatitude();          // 36.15398
 
 It works with `StatefulGeocoder`, `ProviderAggregator` and the Laravel and Symfony bundles like any other provider.
 
+## Laravel
+
+With [Geocoder for Laravel](https://github.com/geocoder-php/GeocoderLaravel), install both and publish its config:
+
+```bash
+composer require -W toin0u/geocoder-laravel internetdata/geocoder-php-provider
+php artisan vendor:publish --provider="Geocoder\Laravel\Providers\GeocoderService"
+```
+
+`-W` lets Composer move `guzzlehttp/psr7` back to the 2.x the bundle takes, since a new Laravel app ships 3.x.
+
+Then make InternetData the provider in `config/geocoder.php`. The bundle passes its own HTTP client, so the only argument is your key, and with no `INTERNETDATA_API_KEY` in `.env` it looks up without one:
+
+```php
+use InternetData\Geocoder\InternetData;
+
+'providers' => [
+    InternetData::class => [
+        env('INTERNETDATA_API_KEY'),
+    ],
+],
+```
+
+```php
+$address = app('geocoder')->geocode('8.8.8.8')->get()->first();
+echo $address->getCountry()->getCode();  // US
+```
+
 ## What it answers
 
 | Geocoder field | Without a key | Paid plan or trial |
