@@ -2,6 +2,12 @@
 
 What each release changed for you, newest first. Each line is a commit's summary, linked to its full description and diff.
 
+## 1.0.1 - 2026-11-24
+
+### Fixes
+
+- README: set it up in Laravel through Geocoder for Laravel ([`58d5281`](https://github.com/internetdata/sdk-php-geocoder/commit/58d52810ec8121b79b20e41c26b9c2d167a8d2e3))
+
 ## 1.0.0 - 2026-11-23
 
 ### Features
